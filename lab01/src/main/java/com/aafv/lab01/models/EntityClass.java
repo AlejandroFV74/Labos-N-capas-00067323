@@ -1,4 +1,4 @@
-package com.aafv.lab01.common.models;
+package com.aafv.lab01.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,10 +14,11 @@ import java.util.ArrayList;
 public class EntityClass {
 
     private Integer id;
+    private String name;
     private ArrayList<String> baseVirus;
     private Integer dangerLvl;
     private String weaknessPoint;
-    private ArrayList<String> actualState;
-    private ArrayList<String> lastReportedLocation;
+    private String actualState;
+    private String lastReportedLocation;
     private String possibleOrigin;
 }
