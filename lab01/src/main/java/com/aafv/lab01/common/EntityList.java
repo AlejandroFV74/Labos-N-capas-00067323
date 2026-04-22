@@ -26,24 +26,24 @@ public class EntityList {
 
         this.entityList.add(EntityClass.builder()
                 .id(2)
-                .name("Alex")
-                .baseVirus(new ArrayList<>(List.of("T-virus", "G-virus", "Cadou")))
-                .dangerLvl(2)
-                .weaknessPoint("head")
+                .name("Isaac")
+                .baseVirus(new ArrayList<>(List.of("T-virus", "Cadou")))
+                .dangerLvl(4)
+                .weaknessPoint("heart")
                 .actualState("Contained")
                 .lastReportedLocation("Hospital")
-                .possibleOrigin("Aulas D")
+                .possibleOrigin("Aulas A")
                 .build());
 
         this.entityList.add(EntityClass.builder()
                 .id(3)
-                .name("Alex")
+                .name("Diego")
                 .baseVirus(new ArrayList<>(List.of("T-virus", "G-virus", "Cadou")))
-                .dangerLvl(2)
-                .weaknessPoint("head")
-                .actualState("Contained")
-                .lastReportedLocation("Hospital")
-                .possibleOrigin("Aulas D")
+                .dangerLvl(1)
+                .weaknessPoint("feat")
+                .actualState("On Search")
+                .lastReportedLocation("Street ab-2")
+                .possibleOrigin("Aulas B")
                 .build());
         }
 
