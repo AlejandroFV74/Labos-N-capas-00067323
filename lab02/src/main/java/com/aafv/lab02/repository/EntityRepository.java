@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface EntityRepository extends JpaRepository<EntityC, UUID> {
-    List<EntityC> getAllEntities();
-    List<EntityC> getByPatronus(String pratonus);
+    List<EntityC> findByEntityPatronus(String pratonus);
     List<EntityC> findByIsDeatheaterTrue();
 }

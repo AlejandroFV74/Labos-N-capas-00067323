@@ -22,16 +22,16 @@ public class EntityServiceImpl implements EntityService {
 
     @Override
     public List<EntityC> getAllEntities(){
-       return entityRepository.getAllEntities();
+       return entityRepository.findAll();
     }
 
     @Override
     public List<EntityC> getEntityByPatronus(String pratonus){
-        return entityRepository.getByPatronus(pratonus);
+        return entityRepository.findByEntityPatronus(pratonus);
     }
 
     @Override
-    public List<EntityC> getOnlyDeatheaters(){
+    public List<EntityC> getOnlyDeatheater(){
         return entityRepository.findByIsDeatheaterTrue();
     }
 

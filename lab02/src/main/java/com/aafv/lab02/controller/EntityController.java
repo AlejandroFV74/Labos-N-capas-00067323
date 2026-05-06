@@ -37,7 +37,7 @@ public class EntityController {
     public ResponseEntity<List<EntityC>> getAllDeatheaters() {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(entityService.getOnlyDeatheaters());
+                .body(entityService.getOnlyDeatheater());
     }
 
     @GetMapping("/patronus/{patronus}")

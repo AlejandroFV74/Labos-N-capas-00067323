@@ -12,7 +12,7 @@ public interface EntityService {
     //Get
     List<EntityC> getAllEntities();
     List<EntityC> getEntityByPatronus(String patronus);
-    List<EntityC> getOnlyDeatheaters();
+    List<EntityC> getOnlyDeatheater();
     //Update
     void updateEntity(EntityC entity, UUID uuid);
     //Delete
