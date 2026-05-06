@@ -57,9 +57,10 @@ public class EntityController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<EntityC> deleteEntity(@PathVariable UUID id) {
+        entityService.deleteEntity(id);
         return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(entityService.deleteEntity(id));
+                .noContent()
+                .build();
     }
 
 }

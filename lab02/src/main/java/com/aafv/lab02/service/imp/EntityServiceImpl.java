@@ -47,7 +47,8 @@ public class EntityServiceImpl implements EntityService {
 
     @Override
     public EntityC deleteEntity(UUID id){
-        EntityC existEntity = entityRepository.getById(id);
+        EntityC existEntity = entityRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Entity not found"));
         entityRepository.delete(existEntity);
         return existEntity;
     }
