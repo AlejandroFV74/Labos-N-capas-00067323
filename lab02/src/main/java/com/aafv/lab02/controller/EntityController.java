@@ -6,10 +6,10 @@ import com.aafv.lab02.service.imp.EntityServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/wizard")
@@ -24,6 +24,42 @@ public class EntityController {
                 .status(HttpStatus.CREATED)
                 .body(entity);
 
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<EntityC>> getAllEntity() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(entityService.getAllEntities());
+    }
+
+    @GetMapping("/deatheaters")
+    public ResponseEntity<List<EntityC>> getAllDeatheaters() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(entityService.getOnlyDeatheaters());
+    }
+
+    @GetMapping("/patronus/{patronus}")
+    public ResponseEntity<List<EntityC>> getAllPatronus(@PathVariable String patronus) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(entityService.getEntityByPatronus(patronus));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<EntityC> updateEntity(@PathVariable UUID id, @RequestBody EntityC entity) {
+        entityService.updateEntity(entity, id);
+        return  ResponseEntity
+                .status(HttpStatus.OK)
+                .body(entity);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<EntityC> deleteEntity(@PathVariable UUID id) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(entityService.deleteEntity(id));
     }
 
 }
