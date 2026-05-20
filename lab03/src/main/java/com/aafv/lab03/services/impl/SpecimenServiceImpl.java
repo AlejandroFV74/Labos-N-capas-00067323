@@ -5,6 +5,7 @@ import com.aafv.lab03.domain.dto.request.CreateSpecimenRequest;
 import com.aafv.lab03.domain.dto.request.UpdateSpecimenRequest;
 import com.aafv.lab03.domain.dto.response.SpecimenResponse;
 import com.aafv.lab03.domain.entity.Specimen;
+import com.aafv.lab03.exceptions.ResourceNotFoundException;
 import com.aafv.lab03.repositories.SpecimenRepository;
 import com.aafv.lab03.services.SpecimenService;
 import jakarta.transaction.Transactional;
