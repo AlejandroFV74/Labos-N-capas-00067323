@@ -61,11 +61,16 @@ public class SpecimenController {
     }
 
     @GetMapping("/get")
-    public ResponseEntity<GeneralResponse> getAllSpecimens() {
+    public ResponseEntity<GeneralResponse> getAllSpecimens(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "name") String sortBy,
+            @RequestParam(defaultValue = "asc") String sortOrder
+    ) {
         return buildResponse(
                 "Specimens found",
                 HttpStatus.OK,
-                specimenService.getAllSpecimens()
+                specimenService.getAllSpecimens(page, size, sortBy, sortOrder)
         );
     }
 
