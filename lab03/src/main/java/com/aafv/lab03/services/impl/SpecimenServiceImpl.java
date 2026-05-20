@@ -2,6 +2,7 @@ package com.aafv.lab03.services.impl;
 
 import com.aafv.lab03.common.mappers.SpecimenMapper;
 import com.aafv.lab03.domain.dto.request.CreateSpecimenRequest;
+import com.aafv.lab03.domain.dto.request.UpdateSpecimenRequest;
 import com.aafv.lab03.domain.dto.response.SpecimenResponse;
 import com.aafv.lab03.domain.entity.Specimen;
 import com.aafv.lab03.repositories.SpecimenRepository;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +25,7 @@ public class SpecimenServiceImpl implements SpecimenService {
     @Transactional
     public SpecimenResponse createSpecimen(CreateSpecimenRequest request) {
         return specimenMapper.toDto(
-                specimenRepository.save(specimenMapper.toEntity(request))
+                specimenRepository.save(specimenMapper.toEntityCreate(request))
         );
     }
 
@@ -53,7 +55,7 @@ public class SpecimenServiceImpl implements SpecimenService {
     }
 
     @Transactional
-    public SpecimenResponse deleteSpecimen(UUID id) {
+    public SpecimenResponse deleteSpecimenById(UUID id) {
         SpecimenResponse existSpecimen = this.getSpecimenById(id);
         specimenRepository.deleteById(id);
         return existSpecimen;
